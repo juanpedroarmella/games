@@ -1,12 +1,12 @@
 <?php
 require dirname(__DIR__) . '/vendor/autoload.php';
 
-use Dotenv\Dotenv;
-
-$dotenv = Dotenv::createUnsafeImmutable(dirname(__DIR__));
+$dotenv = Dotenv\Dotenv::createImmutable(dirname(__DIR__));
 $dotenv->load();
-$host = getenv('DB_HOST');
-$dbname = getenv('DB_NAME');
-$user = getenv('DB_USER') ;
-$password = getenv('DB_PASS');
+
+$host = $_ENV['DB_HOST'];
+$dbname = $_ENV['DB_NAME'];
+$user = $_ENV['DB_USER'] ;
+$password = $_ENV['DB_PASSWORD'];
+
 ?>
