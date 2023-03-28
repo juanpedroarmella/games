@@ -1,13 +1,12 @@
 <?php
 
-  function connect($db)
-  {
+  function connect($host, $dbname, $user, $password){
       try {
-        $conn = new PDO("mysql:host={$db['host']};dbname={$db['db']}", $db['username'], $db['password']);
+        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $password);
 
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        return $conn;
+        return $pdo;
       } catch (PDOException $exception) {
         exit($exception->getMessage());
       }
